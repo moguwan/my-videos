@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页 - 品牌官网</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <nav class="main-nav">
+        <a href="index.html" class="nav-logo">LOGO</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link active">首页</a>
+            <a href="pages/a.html" class="nav-link">品牌 A</a>
+            <a href="pages/b.html" class="nav-link">品牌 B</a>
+            <a href="pages/c.html" class="nav-link">品牌 C</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1 class="reveal-el" data-reveal="up">欢迎来到我的网站</h1>
+        <p class="hero-sub reveal-el" data-reveal="up" data-delay="0.1">探索我们的品牌世界</p>
+        <span class="scroll-hint">Scroll to explore</span>
+    </section>
+
+    <!-- 品牌入口 - 从屏幕外进入 -->
+    <section class="brands-intro">
+        <h2 class="section-title reveal-el" data-reveal="up">我们的子品牌</h2>
+        <div class="brand-cards">
+            <a href="pages/a.html" class="brand-card reveal-el" data-reveal="left">
+                <span class="brand-letter">A</span>
+                <span class="brand-name">品牌 A</span>
+            </a>
+            <a href="pages/b.html" class="brand-card reveal-el" data-reveal="up">
+                <span class="brand-letter">B</span>
+                <span class="brand-name">品牌 B</span>
+            </a>
+            <a href="pages/c.html" class="brand-card reveal-el" data-reveal="right">
+                <span class="brand-letter">C</span>
+                <span class="brand-name">品牌 C</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="spacer">
+        <span class="scroll-text">Scroll Down</span>
+        <div class="scroll-arrow"></div>
+    </section>
+
+    <!-- 视频区域 1：风扇动画 -->
+    <section class="video-section" data-video-section
+        data-frames-path="Chawke视频组/风扇动画_frames/frame_"
+        data-frames-key="风扇动画_frames"
+        data-video-src="Chawke视频组/风扇动画.m4v">
+        <div class="video-container">
+            <canvas class="frame-canvas"></canvas>
+            <video class="frame-video" muted playsinline preload="auto" style="display:none"></video>
+            <div class="video-overlay">
+                <h2 class="overlay-headline">更<span class="highlight">流畅</span>的运转体验</h2>
+                <div class="feature-cards">
+                    <div class="feature-card" data-delay="0.1"><span class="card-num" data-target="3600">0</span><span class="card-unit">RPM</span></div>
+                    <div class="feature-card" data-delay="0.2"><span class="card-num" data-target="98">0</span><span class="card-unit">% 效率</span></div>
+                    <div class="feature-card" data-delay="0.3"><span class="card-num" data-target="24">0</span><span class="card-unit">小时耐久</span></div>
+                </div>
+            </div>
+            <span class="watch-hint">Watch the film</span>
+            <h2 class="video-section-title">风扇动画</h2>
+        </div>
+    </section>
+
+    <section class="spacer">
+        <span class="scroll-text">Scroll Down</span>
+        <div class="scroll-arrow"></div>
+    </section>
+
+    <!-- 横屏滚动区 -->
+    <section class="horizontal-scroll-wrap">
+        <div class="horizontal-scroll-pin">
+            <h2 class="horizontal-title reveal-el" data-reveal="up">品牌实力展示</h2>
+            <div class="horizontal-track">
+                <div class="horizontal-panel"><span class="panel-num" data-count="100">0</span><span class="panel-label">+ 产品线</span></div>
+                <div class="horizontal-panel"><span class="panel-num" data-count="50">0</span><span class="panel-label">+ 国家地区</span></div>
+                <div class="horizontal-panel"><span class="panel-num" data-count="1000">0</span><span class="panel-label">+ 合作伙伴</span></div>
+                <div class="horizontal-panel"><span class="panel-num" data-count="99">0</span><span class="panel-label">% 客户满意度</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="spacer">
+        <span class="scroll-text">Scroll Down</span>
+        <div class="scroll-arrow"></div>
+    </section>
+
+    <!-- 视频区域 2：切割刀 -->
+    <section class="video-section" data-video-section
+        data-frames-path="Chawke视频组/切割刀_frames/frame_"
+        data-frames-key="切割刀_frames"
+        data-video-src="Chawke视频组/切割刀.mp4">
+        <div class="video-container">
+            <canvas class="frame-canvas"></canvas>
+            <video class="frame-video" muted playsinline preload="auto" style="display:none"></video>
+            <div class="video-overlay">
+                <h2 class="overlay-headline">极致<span class="highlight">精密</span>切割</h2>
+                <div class="feature-cards">
+                    <div class="feature-card" data-delay="0.1"><span class="card-num" data-target="0.01">0</span><span class="card-unit">mm 精度</span></div>
+                    <div class="feature-card" data-delay="0.2"><span class="card-num" data-target="99">0</span><span class="card-unit">% 合格率</span></div>
+                    <div class="feature-card" data-delay="0.3"><span class="card-num" data-target="1000">0</span><span class="card-unit">次/分钟</span></div>
+                </div>
+            </div>
+            <span class="watch-hint">Watch the film</span>
+            <h2 class="video-section-title">切割刀</h2>
+        </div>
+    </section>
+
+    <section class="spacer">
+        <span class="scroll-text">Scroll Down</span>
+        <div class="scroll-arrow"></div>
+    </section>
+
+    <!-- 数字统计区 - 滚动触发数字变化 -->
+    <section class="stats-section">
+        <h2 class="section-title reveal-el" data-reveal="up">核心数据</h2>
+        <div class="stats-grid">
+            <div class="stat-item reveal-el" data-reveal="up">
+                <span class="stat-num" data-count="3600">0</span>
+                <span class="stat-unit">RPM</span>
+                <span class="stat-desc">最高转速</span>
+            </div>
+            <div class="stat-item reveal-el" data-reveal="up">
+                <span class="stat-num" data-count="99">0</span>
+                <span class="stat-unit">%</span>
+                <span class="stat-desc">良品率</span>
+            </div>
+            <div class="stat-item reveal-el" data-reveal="up">
+                <span class="stat-num" data-count="10">0</span>
+                <span class="stat-unit">年</span>
+                <span class="stat-desc">质保承诺</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="spacer">
+        <span class="scroll-text">Scroll Down</span>
+        <div class="scroll-arrow"></div>
+    </section>
+
+    <!-- 视频区域 3：焊接动画 -->
+    <section class="video-section" data-video-section
+        data-frames-path="Chawke视频组/焊接动画_frames/frame_"
+        data-frames-key="焊接动画_frames"
+        data-video-src="Chawke视频组/焊接动画.m4v">
+        <div class="video-container">
+            <canvas class="frame-canvas"></canvas>
+            <video class="frame-video" muted playsinline preload="auto" style="display:none"></video>
+            <div class="video-overlay">
+                <h2 class="overlay-headline">更<span class="highlight">可靠</span>的焊接工艺</h2>
+                <div class="feature-cards">
+                    <div class="feature-card" data-delay="0.1"><span class="card-num" data-target="99.9">0</span><span class="card-unit">% 良品率</span></div>
+                    <div class="feature-card" data-delay="0.2"><span class="card-num" data-target="0">0</span><span class="card-unit">缺陷</span></div>
+                    <div class="feature-card" data-delay="0.3"><span class="card-num" data-target="10">0</span><span class="card-unit">年质保</span></div>
+                </div>
+            </div>
+            <span class="watch-hint">Watch the film</span>
+            <h2 class="video-section-title">焊接动画</h2>
+        </div>
+    </section>
+
+    <section class="footer">
+        <p>© 2025 品牌官网</p>
+        <p>探索更多可能</p>
+    </section>
+
+    <script src="frame_counts.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

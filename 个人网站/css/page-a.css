@@ -1,0 +1,981 @@
+/**
+ * A 页 - Chawke 焊接头产品介绍
+ * 图片路径统一使用 imga/ 文件夹
+ */
+
+/* ========== 第一屏 Hero：视频 fixed 固定，下方覆盖 ========== */
+.a-hero {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    z-index: 0;
+    background: #000;
+    overflow: hidden;
+}
+/* 滚出首屏后：视频隐藏，只显示纯黑背景，避免内容渐入时透出视频 */
+.a-hero.scrolled-past .a-hero-video {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+.a-hero-spacer {
+    height: 100vh;
+    position: relative;
+}
+
+.a-hero-video {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.a-hero-logo {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 1.2s ease;
+}
+
+.a-hero-logo.visible {
+    opacity: 1;
+}
+
+.a-hero-logo img {
+    max-height: 100px;
+    max-width: 95vw;
+    display: block;
+}
+
+.a-hero-logo-text {
+    display: none;
+}
+
+.a-hero-video {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+.a-hero-video.visible {
+    opacity: 1;
+}
+
+.a-hero-video-el {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+/* 右上角喇叭图标：独立于 hero，z-index 高于 Logo，随滚动缩小/放大 */
+.a-hero-sound-hint {
+    --sound-scale: 1;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10002;
+    width: 72px;
+    height: 72px;
+    color: #f59e0b;
+    opacity: 0;
+    pointer-events: none;
+    cursor: pointer;
+    transition: opacity 0.5s ease, transform 0.2s ease;
+    transform: scale(var(--sound-scale));
+    transform-origin: top right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0;
+}
+.a-hero-sound-hint.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+.a-hero-sound-hint.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0);
+}
+/* 云朵提示：无声音时从按钮左侧伸出 */
+.a-hero-sound-bubble {
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 8px;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none;
+}
+.a-hero-sound-bubble::after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 8px solid transparent;
+    border-left-color: rgba(255, 255, 255, 0.95);
+    border-right: none;
+}
+.a-hero-sound-bubble.show {
+    opacity: 1;
+    visibility: visible;
+}
+.a-hero-sound-hint svg {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 8px currentColor);
+    animation: sound-breathe 2s ease-in-out infinite;
+}
+@keyframes sound-breathe {
+    0%, 100% { opacity: 1; filter: drop-shadow(0 0 8px currentColor); }
+    50% { opacity: 0.85; filter: drop-shadow(0 0 16px currentColor); }
+}
+
+/* ========== A 页：导航栏滚动时才显示，z-index 低于 Logo ========== */
+.page-a .main-nav {
+    z-index: 9999;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.page-a .main-nav.scrolled {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+/* ========== 第二屏 Overview：sticky 停留，滚动完后正常被下方内容顶上去 ========== */
+.a-overview {
+    min-height: 650vh;
+    position: relative;
+    z-index: 1;
+}
+
+/* 海报层：sticky 固定，滚动时停留，滚动完后正常被下方内容顶上去 */
+.a-overview-inner {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2rem 2rem 3rem;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* 海报-2：产品图，在后面，从大缩小入画 */
+.a-overview-poster {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.a-poster-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: center center;
+    transform: scale(5);
+    opacity: 0;
+}
+
+.a-poster-img {
+    max-width: 100%;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+/* 海报-1：叠在海报-2 上方，渐出+从大缩小入画（海报-2 动画结束后才出现） */
+.a-overview-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-image: url(../imga/海报-1.png);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transform-origin: center center;
+    transform: scale(5);
+    opacity: 0;
+}
+
+/* 产品名 + 副标题：更靠下，白色文字更大 */
+.a-overview-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    margin-top: auto;
+    padding-bottom: 3rem;
+    pointer-events: none;
+}
+
+.a-overview-product {
+    font-size: clamp(2.4rem, 5.5vw, 3.6rem);
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 0.02em;
+    margin: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.a-overview-content [data-reveal="text"] {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.a-overview-title {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 500;
+    color: #e67e22;
+    text-align: center;
+    letter-spacing: 0.02em;
+    line-height: 1.6;
+    white-space: nowrap;
+    margin: 0;
+}
+
+/* ========== 第三屏 产品特性展示区 - 四列布局 ========== */
+.a-modules {
+    background: #000;
+    padding: 4rem 2rem;
+    overflow: visible;
+    position: relative;
+    z-index: 2;
+}
+
+/* 4列×4行 网格：第1/4行高为2单位，第2/3行高为1单位(2+3=1=4)；行稍宽、列缩短 */
+.a-modules-custom-grid {
+    display: grid;
+    grid-template-columns: 2fr 1.6fr 1fr 1fr;
+    grid-template-rows: 2fr 1fr 1fr 2.6fr;
+    gap: 1rem 1.2rem;
+    max-width: 1020px;
+    margin: 0 auto;
+    min-height: 380px;
+    perspective: 600px;
+    overflow: visible;
+}
+
+/* 通用模块：黑色背景 + 白色细边 */
+.custom-module {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    border-radius: 16px;
+    padding: 1rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.m-text { padding: 0 0.5rem; }
+.m-text p { color: #a0a0a0; font-size: 0.9rem; margin-top: 4px; line-height: 1.4; }
+.big-num { color: #fff; font-size: 1.6rem; font-weight: bold; line-height: 1; display: block; }
+.center-text { text-align: center; }
+
+/* 1. 3-in-1：第二列，占第1～3行，图片贴最底，无悬浮动画，图片不冲出框框 */
+.module-3in1 {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    justify-content: space-between;
+    padding-top: 1.5rem;
+    padding-bottom: 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 5;
+}
+.module-3in1 .orange-title {
+    color: #ff6b35;
+    font-size: clamp(2.8rem, 3.5vw, 3.6rem);
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+.module-3in1 .top-text {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    align-self: center;
+    width: 100%;
+}
+.module-3in1 .m-text p { font-size: 0.95rem; }
+.module-3in1 .overlap-img {
+    margin-top: auto;
+    margin-bottom: 0;
+    z-index: 1;
+    text-align: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+}
+.module-3in1 .overlap-img img {
+    width: 100%;
+    max-width: 320px;
+    object-fit: contain;
+    object-position: bottom center;
+}
+.module-3in1 .overlap-img.img-pop-hover {
+    transition: none;
+}
+.module-3in1 .overlap-img.img-pop-hover:hover {
+    transform: none;
+}
+
+/* 2. 70W+刻刀：第1行第3格和第4格（跨两列），刻刀浮于最上层不被裁剪 */
+.module-70w {
+    grid-column: 3 / 5;
+    grid-row: 1;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    align-items: flex-start;
+    text-align: left;
+    overflow: visible;
+    position: relative;
+    z-index: 10;
+}
+.module-70w .m-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+.module-70w .sub {
+    font-size: 1rem;
+}
+.pierce-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    margin-top: 6px;
+    width: 100%;
+    overflow: visible;
+}
+.pierce-wrapper .big-num {
+    font-size: clamp(3.6rem, 7vw, 5.4rem);
+    letter-spacing: -2px;
+    z-index: 1;
+    background: linear-gradient(180deg, #fff 35%, #aaa 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.knife-img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: clamp(80px, 10vw, 120px);
+    z-index: 100;
+    object-fit: contain;
+    object-position: center;
+    transform: translate(-22%, -50%);
+    pointer-events: none;
+}
+[data-70w-anim] {
+    opacity: 0;
+}
+[data-70w-anim] .sub,
+[data-70w-anim] .big-num {
+    opacity: 0;
+    transform: scale(0.92);
+}
+[data-70w-anim] .knife-img {
+    opacity: 0;
+    transform: translate(-22%, -50%) scale(0.8);
+}
+
+/* 3. 风扇：第2行和第3行的第3格合并为一块 */
+.module-fan {
+    grid-column: 3;
+    grid-row: 2 / 4;
+    text-align: center;
+}
+.module-fan .video-wrapper {
+    width: 100%;
+}
+.video-wrapper video {
+    width: 100%;
+    mix-blend-mode: screen;
+    margin-top: 4px;
+    border-radius: 50%;
+    object-fit: contain;
+    transform: scale(1.2);
+}
+
+/* 4. 10 Types：第4列，第2/3/4行（下面三行） */
+.module-heads {
+    grid-column: 4;
+    grid-row: 2 / 5;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: visible;
+    padding: 1rem 1.8rem;
+}
+.module-heads .m-text {
+    position: relative;
+    z-index: 2;
+    padding: 0.5rem 0;
+    order: 2;
+}
+/* 刀片容器：上5扇形向内，下5扇形向外 */
+.heads-cluster {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    overflow: visible;
+    perspective: 400px;
+}
+.heads-cluster.top-left-pivot {
+    order: 1;
+    align-self: flex-start;
+}
+.heads-cluster.bottom-right-pivot {
+    order: 3;
+    align-self: flex-end;
+}
+.blade-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+}
+.blade-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.25s ease;
+    transform-origin: center center;
+}
+.blade-wrap:hover .blade-hover {
+    transform: scale(1.2) translateZ(20px);
+    z-index: 10;
+}
+.top-left-pivot .blade-wrap {
+    transform-origin: top left;
+}
+.top-left-pivot .blade-hover .blade {
+    top: 0;
+    left: 0;
+}
+.bottom-right-pivot .blade-wrap {
+    top: auto;
+    left: auto;
+    bottom: 0;
+    right: 0;
+    transform-origin: bottom right;
+}
+.bottom-right-pivot .blade-hover {
+    top: auto;
+    left: auto;
+    bottom: 0;
+    right: 0;
+}
+.bottom-right-pivot .blade-hover .blade {
+    top: auto;
+    left: auto;
+    bottom: 0;
+    right: 0;
+}
+.blade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: 16px;
+    object-fit: contain;
+    opacity: 0;
+    visibility: visible;
+}
+.top-left-pivot {
+    top: 0;
+    left: 0;
+}
+.top-left-pivot .blade {
+    transform-origin: top left;
+}
+.bottom-right-pivot {
+    bottom: 0;
+    right: 0;
+    top: auto;
+    left: auto;
+}
+.bottom-right-pivot .blade {
+    transform-origin: bottom right;
+    top: auto;
+    bottom: 0;
+    left: auto;
+    right: 0;
+}
+
+/* 5. 40KHz：第二列，第4行，光波控制在框内不覆盖周围 */
+.module-40k {
+    grid-column: 2;
+    grid-row: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    overflow: hidden;
+    position: relative;
+}
+.module-40k .wave-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.5);
+    width: 100%;
+    mix-blend-mode: screen;
+    opacity: 0.85;
+    z-index: 1;
+    object-fit: contain;
+}
+.module-40k .above-wave {
+    position: relative;
+    z-index: 2;
+}
+.above-wave .big-num { font-size: 2.8rem; }
+
+/* 6. LCD：第3列，第4行 */
+.module-lcd {
+    grid-column: 3;
+    grid-row: 4;
+    text-align: center;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.module-lcd .m-text { order: 1; }
+.module-lcd .m-text p { font-size: 0.95rem; }
+.module-lcd .m-visual {
+    order: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    width: 100%;
+}
+.module-lcd .lcd-glow img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transform: scale(1.2);
+}
+
+/* 通用：图片悬浮 */
+.img-pop-hover {
+    display: inline-block;
+    transition: transform 0.25s ease;
+    transform-origin: center center;
+}
+.img-pop-hover:hover {
+    transform: scale(1.08) translateZ(15px);
+    z-index: 5;
+}
+
+/* 7. Two Use Mode：第一列，占上2行，含 HOLD/CLICK 图 + Two Use Mode 字样 */
+.module-two-mode {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    padding: 1rem;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.module-two-mode .two-mode-visual {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.module-two-mode img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: contain;
+    display: block;
+}
+.module-two-mode .two-mode-text {
+    text-align: center;
+    padding: 0.5rem 0 0;
+}
+.module-two-mode .two-mode-text .big-num {
+    font-size: 1.8rem;
+    color: #fff;
+}
+.module-two-mode .two-mode-text p {
+    font-size: 1rem;
+    color: #a0a0a0;
+    margin-top: 2px;
+}
+
+/* 8. Safe：第一列，占下2行 */
+.module-safe {
+    grid-column: 1;
+    grid-row: 3 / 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 1rem;
+    text-align: center;
+}
+.module-safe .m-visual {
+    order: -1;
+}
+.module-safe .shield-glow img {
+    width: 220px;
+    filter: drop-shadow(0 0 35px rgba(100, 150, 255, 0.4));
+    animation: shield-float 3s ease-in-out infinite;
+}
+@keyframes shield-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+.module-safe .big-num {
+    font-size: 2.2rem;
+}
+.safe-sub { font-size: 1.2rem; color: #a0a0a0; margin-top: 0; }
+
+/* 手机端适配 */
+@media (max-width: 900px) {
+    .a-modules-custom-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 1.5rem;
+        min-height: auto;
+    }
+    .module-3in1, .module-70w, .module-fan, .module-heads,
+    .module-40k, .module-lcd, .module-two-mode, .module-safe {
+        grid-column: 1;
+        grid-row: auto;
+        min-height: 200px;
+    }
+    .module-heads { min-height: 320px; }
+    .knife-img { transform: translate(-50%, -50%); }
+}
+
+/* ========== 第四/五屏 逐帧视频区 ========== */
+.a-video-section {
+    min-height: 600vh;
+    position: relative;
+    z-index: 1;
+    background: #000;
+}
+
+.a-video-container {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.a-video-container .video-overlay {
+    padding: 0 2rem 6rem;
+}
+
+/* ========== 技术图表区 ========== */
+.a-diagrams {
+    min-height: 80vh;
+    padding: 6rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    background: #000;
+}
+
+.a-diagram {
+    max-width: 800px;
+    width: 100%;
+    min-height: 300px;
+    background: #000;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+}
+.a-diagram-large {
+    max-width: none;
+    width: 80vw;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.a-diagram-large .a-diagram-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.a-diagram-page {
+    max-width: none;
+    width: 60vw;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.a-diagram-page .a-diagram-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.a-diagram-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.a-diagram.no-img .a-module-placeholder {
+    display: flex;
+}
+
+/* ========== 焊接模式详情页（4-5 后） ========== */
+.a-welding-detail {
+    margin-top: 20px;
+    padding: 6rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    background: #000;
+    position: relative;
+    z-index: 1;
+}
+
+/* pin 时内容超出视口会被裁剪，限制高度并允许内部滚动（隐藏滚动条） */
+.a-welding-detail.is-pinned {
+    max-height: 100vh;
+    overflow-y: auto;
+    scrollbar-width: none;           /* Firefox */
+    -ms-overflow-style: none;        /* IE/Edge */
+}
+.a-welding-detail.is-pinned::-webkit-scrollbar {
+    display: none;                  /* Chrome/Safari */
+}
+
+.a-welding-detail-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25em;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+}
+
+.a-welding-detail-line1 {
+    font-size: clamp(2.2rem, 5vw, 2.7rem);
+    font-weight: 400;
+}
+
+.a-welding-detail-line2 {
+    font-size: clamp(3.5rem, 9vw, 5rem);
+    font-weight: 700;
+}
+
+.a-welding-detail-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.a-welding-detail-icon svg {
+    display: block;
+    width: clamp(56px, 10vw, 80px);
+    height: auto;
+}
+
+.a-welding-detail-image-wrap {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.a-welding-detail-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* ========== 三种焊头：进度条直接变身为卡片 ========== */
+.a-welding-heads {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.a-welding-head-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    width: 100%;
+}
+
+/* 颜色变量映射 */
+.a-welding-head-card[data-color="orange"] { --head-color: #e67e22; }
+.a-welding-head-card[data-color="gray"] { --head-color: #95a5a6; }
+.a-welding-head-card[data-color="blue"] { --head-color: #3498db; }
+
+/* 标题移到进度条上方，始终可见 */
+.a-welding-head-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.95);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    letter-spacing: 0.02em;
+}
+
+.a-welding-head-arrow {
+    flex-shrink: 0;
+    opacity: 0.7;
+}
+
+/* 面板外壳：初始状态就是细进度条 */
+.a-welding-head-panel-wrap {
+    margin-bottom: 0px;
+    position: relative;
+    width: 100%;
+    height: 14px; /* 进度条初始高度 */
+    background: rgba(255,255,255,0.12);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+/* 背景层：从左向右横向填充的进度，置于内容下方 */
+.a-welding-head-panel-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%; /* GSAP 会控制从 0 到 100% */
+    background: var(--head-color);
+    border-radius: 14px;
+    z-index: 0;
+}
+
+/* 内部内容：展开后显示，需在背景层之上 */
+.a-welding-head-panel-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    opacity: 0; /* 初始隐藏，由 GSAP 渐显 */
+    color: #fff;
+    min-height: 140px; /* 保证展开后的基础高度 */
+}
+
+.a-welding-head-img {
+    width: 190px;
+    height: 190px;
+    object-fit: contain;
+    object-position: center;
+    flex-shrink: 0;
+    align-self: center; /* 垂直居中对齐 */
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+    transform: rotate(90deg);
+}
+
+.a-welding-head-divider {
+    width: 1px;
+    height: 56px;
+    background: rgba(255,255,255,0.4);
+    margin: 0 1.75rem;
+    flex-shrink: 0;
+}
+
+.a-welding-head-power {
+    font-size: 5.25rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    letter-spacing: 0.05em;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.a-welding-head-desc {
+    font-size: 1.3rem;
+    color: rgba(255,255,255,0.92);
+    flex: 1;
+    min-width: 0;
+    line-height: 1.5;
+    margin-left: 1.75rem;
+    letter-spacing: 0.01em;
+}
+
+@media (max-width: 640px) {
+    .a-welding-head-panel-content { flex-wrap: wrap; padding: 1.25rem 1.5rem; }
+    .a-welding-head-img { width: 120px; height: 120px; object-position: left center; align-self: center; transform: rotate(90deg); }
+    .a-welding-head-divider { display: none; }
+    .a-welding-head-power { margin-top: 0.5rem; width: 100%; font-size: 1.75rem; }
+    .a-welding-head-desc { margin-left: 0; margin-top: 0.5rem; font-size: 0.9rem; }
+}
+
+/* 确保 footer 也覆盖首屏视频 */
+.page-a .footer {
+    position: relative;
+    z-index: 1;
+}

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chawke B2 - 焊接头产品介绍</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/page-a.css">
+</head>
+<body class="page-a">
+    <nav class="main-nav">
+        <a href="../index.html" class="nav-logo">Chawke</a>
+        <div class="nav-links">
+            <a href="../index.html" class="nav-link">首页</a>
+            <a href="a.html" class="nav-link active">品牌 A</a>
+            <a href="b.html" class="nav-link">品牌 B</a>
+            <a href="c.html" class="nav-link">品牌 C</a>
+        </div>
+    </nav>
+
+    <!-- Logo 独立于 body 下，始终最顶层（无跳转链接） -->
+    <div class="a-hero-logo" data-hero="logo">
+        <img src="../imga/logo.png" alt="Chawke" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+        <span class="a-hero-logo-text">视频 Chawke</span>
+    </div>
+
+    <!-- 喇叭按钮：独立于 hero 外，可切换播放/暂停，无声音时显示云朵提示 -->
+    <div class="a-hero-sound-hint" id="a-hero-sound-hint" aria-hidden="true">
+        <span class="a-hero-sound-bubble">开启声音</span>
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 14v20l10-10h8V14h-8L14 14z" fill="currentColor"/>
+            <path d="M34 18c1.5 1.5 1.5 4.5 0 6M38 14c2.5 2.5 2.5 7.5 0 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </svg>
+    </div>
+
+    <!-- 视频区：fixed 固定，不随滚动上移，下方内容覆盖上来 -->
+    <div class="a-hero" id="a-hero">
+        <div class="a-hero-video" data-hero="video">
+            <video class="a-hero-video-el" playsinline preload="auto">
+                <source src="../imga/kaichang.MP4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <!-- 滚动占位，使下方内容从视口外进入 -->
+    <div class="a-hero-spacer"></div>
+
+    <!-- 第二屏：海报-1+海报-2 固定，滚动驱动动画（非逐帧） -->
+    <section class="a-overview" id="a-overview" data-poster-section>
+        <div class="a-overview-inner">
+            <div class="a-overview-poster">
+                <div class="a-poster-visual">
+                    <img src="../imga/海报-2.png" alt="3-in-1" class="a-poster-img">
+                </div>
+            </div>
+            <div class="a-overview-bg"></div>
+            <div class="a-overview-content">
+                <h2 class="a-overview-product" data-reveal="text">Chawke U2</h2>
+                <p class="a-overview-title" data-reveal="text">Ultrasonic Workstation for Welding, Cutting & Sanding</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="a-modules" id="a-modules">
+        <div class="a-modules-custom-grid">
+            
+            <div class="custom-module module-3in1 gs-reveal">
+                <div class="m-text top-text">
+                    <h2 class="orange-title">3-in-1</h2>
+                    <p>Ultrasonic Workstation:<br>Cutting, Welding, Sanding</p>
+                </div>
+                <div class="m-visual overlap-img img-pop-hover">
+                    <img src="../imga/3-1.png" alt="3-in-1">
+                </div>
+            </div>
+
+            <div class="custom-module module-70w" data-70w-anim>
+                <div class="m-text">
+                    <p class="sub">3 Adjustable Modes Up to 70W Power</p>
+                    <div class="pierce-wrapper">
+                        <span class="big-num">70W</span>
+                        <img src="../imga/刻刀.png" class="knife-img" alt="Knife">
+                    </div>
+                </div>
+            </div>
+
+            <div class="custom-module module-fan gs-reveal">
+                <div class="m-text">
+                    <p>Built-in Cooler for<br>Longer Use</p>
+                </div>
+                <div class="m-visual video-wrapper">
+                    <video src="../imga/风扇.mp4" autoplay loop muted playsinline></video>
+                </div>
+            </div>
+
+            <div class="custom-module module-heads gs-reveal">
+                <div class="heads-cluster top-left-pivot">
+                    <span class="blade-wrap t-b1-wrap"><span class="blade-hover"><img src="../imga/刀片1.png" class="blade t-b1" alt="" onerror="this.src='../imga/刀片一.png'"></span></span>
+                    <span class="blade-wrap t-b2-wrap"><span class="blade-hover"><img src="../imga/刀片2.png" class="blade t-b2" alt="" onerror="this.src='../imga/刀片二.png'"></span></span>
+                    <span class="blade-wrap t-b3-wrap"><span class="blade-hover"><img src="../imga/刀片3.png" class="blade t-b3" alt="" onerror="this.src='../imga/刀片三.png'"></span></span>
+                    <span class="blade-wrap t-b4-wrap"><span class="blade-hover"><img src="../imga/刀片4.png" class="blade t-b4" alt="" onerror="this.src='../imga/刀片四.png'"></span></span>
+                    <span class="blade-wrap t-b5-wrap"><span class="blade-hover"><img src="../imga/刀片5.png" class="blade t-b5" alt="" onerror="this.src='../imga/刀片五.png'"></span></span>
+                </div>
+                
+                <div class="m-text center-text">
+                    <span class="big-num">10 Types</span>
+                    <p>of Replaceable Heads</p>
+                </div>
+
+                <div class="heads-cluster bottom-right-pivot">
+                    <span class="blade-wrap b-b1-wrap"><span class="blade-hover"><img src="../imga/刀片6.png" class="blade b-b1" alt="" onerror="this.src='../imga/刀片六.png'"></span></span>
+                    <span class="blade-wrap b-b2-wrap"><span class="blade-hover"><img src="../imga/刀片7.png" class="blade b-b2" alt="" onerror="this.src='../imga/刀片七.png'"></span></span>
+                    <span class="blade-wrap b-b3-wrap"><span class="blade-hover"><img src="../imga/刀片8.png" class="blade b-b3" alt="" onerror="this.src='../imga/刀片八.png'"></span></span>
+                    <span class="blade-wrap b-b4-wrap"><span class="blade-hover"><img src="../imga/刀片9.png" class="blade b-b4" alt="" onerror="this.src='../imga/刀片九.png'"></span></span>
+                    <span class="blade-wrap b-b5-wrap"><span class="blade-hover"><img src="../imga/刀片10.png" class="blade b-b5" alt=""></span></span>
+                </div>
+            </div>
+
+            <div class="custom-module module-40k gs-reveal">
+                <img src="../imga/波.gif" class="wave-bg" alt="Wave">
+                <div class="m-text center-text above-wave">
+                    <span class="big-num">40KHz</span>
+                    <p>Vibrations</p>
+                </div>
+            </div>
+
+            <div class="custom-module module-lcd gs-reveal">
+                <div class="m-text">
+                    <p>Integrated LCD Display<br>Powering Dock</p>
+                </div>
+                <div class="m-visual lcd-glow img-pop-hover">
+                    <img src="../imga/底座图.png" alt="LCD">
+                </div>
+            </div>
+
+            <div class="custom-module module-two-mode gs-reveal">
+                <div class="two-mode-visual img-pop-hover">
+                    <img src="../imga/two.PNG" alt="Two Use Mode">
+                </div>
+                <div class="m-text two-mode-text">
+                    <span class="big-num">Two</span>
+                    <p>Use Mode</p>
+                </div>
+            </div>
+
+            <div class="custom-module module-safe gs-reveal">
+                <div class="m-visual shield-glow img-pop-hover">
+                    <img src="../imga/盾牌.png" alt="Shield">
+                </div>
+                <div class="m-text">
+                    <span class="big-num">Safe</span>
+                    <p class="safe-sub">Precise & Effective</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 第五屏：风扇逐帧动画（帧图可放入 imga/fan_frames/ 或使用下方路径） -->
+    <section class="a-video-section" data-video-section
+        data-frames-path="../Chawke视频组/风扇动画_frames/frame_"
+        data-frames-key="风扇动画_frames"
+        data-video-src="../Chawke视频组/风扇动画.m4v">
+        <div class="a-video-container">
+            <canvas class="frame-canvas"></canvas>
+            <video class="frame-video" muted playsinline preload="auto" style="display:none"></video>
+            <div class="video-overlay">
+                <h2 class="overlay-headline">Built In <span class="highlight">Fan</span> for Long Lasting Use</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技术图表区 -->
+    <section class="a-diagrams">
+        <div class="a-diagram a-diagram-large a-diagram-animate gs-reveal">
+            <img src="../imga/4-1.png" alt="" class="a-diagram-img">
+        </div>
+        <div class="a-diagram a-diagram-page a-diagram-animate gs-reveal">
+            <img src="../imga/4-2.png" alt="" class="a-diagram-img">
+        </div>
+        <div class="a-diagram a-diagram-page a-diagram-animate gs-reveal">
+            <img src="../imga/4-3.png" alt="" class="a-diagram-img">
+        </div>
+        <div class="a-diagram a-diagram-page a-diagram-animate gs-reveal">
+            <img src="../imga/4-4.png" alt="" class="a-diagram-img">
+        </div>
+    </section>
+
+    <!-- 焊接模式详情页：Grid Welding Head -->
+    <section class="a-welding-detail gs-reveal">
+        <h2 class="a-welding-detail-title">
+            <span class="a-welding-detail-line1">3 Different Range of</span>
+            <span class="a-welding-detail-line2">Welding Powering Modes</span>
+        </h2>
+        <div class="a-welding-detail-icon">
+            <svg width="33" height="29" viewBox="0 0 33 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.1404 13.6748V1.18277C17.1403 0.869066 17.0172 0.568224 16.7981 0.346416C16.579 0.124608 16.2819 0 15.9721 0C15.6623 0 15.3652 0.124608 15.1461 0.346416C14.927 0.568224 14.8039 0.869066 14.8038 1.18277V13.6748C13.7157 13.9391 12.7481 14.5686 12.0584 15.4609C11.3688 16.3532 10.9978 17.4556 11.006 18.5886C11.0141 19.7216 11.4008 20.8184 12.1032 21.7005C12.8056 22.5825 13.7822 23.1977 14.8739 23.446C14.8328 23.564 14.8092 23.6876 14.8038 23.8127V27.2078C14.8039 27.5215 14.927 27.8223 15.1461 28.0442C15.3652 28.266 15.6623 28.3906 15.9721 28.3906C16.2819 28.3906 16.579 28.266 16.7981 28.0442C17.0172 27.8223 17.1403 27.5215 17.1404 27.2078V23.8127C17.137 23.6862 17.1092 23.5617 17.0586 23.446C18.1507 23.1991 19.1281 22.5851 19.8315 21.7039C20.535 20.8227 20.9231 19.7263 20.9326 18.5933C20.942 17.4603 20.5724 16.3574 19.8838 15.4642C19.1952 14.5711 18.2282 13.9404 17.1404 13.6748ZM15.9721 21.2102C15.4522 21.2102 14.944 21.0541 14.5117 20.7616C14.0795 20.4692 13.7425 20.0535 13.5436 19.5671C13.3446 19.0808 13.2926 18.5456 13.394 18.0293C13.4954 17.513 13.7458 17.0387 14.1134 16.6665C14.481 16.2943 14.9494 16.0408 15.4593 15.9381C15.9692 15.8354 16.4977 15.8881 16.978 16.0895C17.4583 16.291 17.8689 16.6321 18.1577 17.0698C18.4465 17.5075 18.6007 18.0221 18.6007 18.5486C18.6007 19.2545 18.3238 19.9315 17.8308 20.4306C17.3378 20.9298 16.6693 21.2102 15.9721 21.2102ZM6.15866 5.9146V1.18277C6.15861 0.869066 6.0355 0.568224 5.81642 0.346416C5.59733 0.124608 5.3002 0 4.99039 0C4.68058 0 4.38345 0.124608 4.16436 0.346416C3.94528 0.568224 3.82217 0.869066 3.82212 1.18277V5.9146C2.73514 6.17063 1.76575 6.79167 1.07175 7.67662C0.377746 8.56158 0 9.65834 0 10.7884C0 11.9184 0.377746 13.0152 1.07175 13.9001C1.76575 14.7851 2.73514 15.4061 3.82212 15.6621V27.2078C3.82217 27.5215 3.94528 27.8223 4.16436 28.0442C4.38345 28.266 4.68058 28.3906 4.99039 28.3906C5.3002 28.3906 5.59733 28.266 5.81642 28.0442C6.0355 27.8223 6.15861 27.5215 6.15866 27.2078V15.6621C7.24564 15.4061 8.21503 14.7851 8.90903 13.9001C9.60303 13.0152 9.98078 11.9184 9.98078 10.7884C9.98078 9.65834 9.60303 8.56158 8.90903 7.67662C8.21503 6.79167 7.24564 6.17063 6.15866 5.9146ZM4.99039 13.45C4.4705 13.45 3.96229 13.2939 3.53002 13.0015C3.09775 12.709 2.76083 12.2933 2.56188 11.8069C2.36293 11.3206 2.31087 10.7854 2.4123 10.2691C2.51372 9.7528 2.76407 9.27854 3.13169 8.9063C3.4993 8.53406 3.96768 8.28057 4.47757 8.17787C4.98747 8.07516 5.516 8.12787 5.99631 8.32933C6.47663 8.53078 6.88716 8.87193 7.17599 9.30964C7.46483 9.74734 7.61899 10.2619 7.61899 10.7884C7.61902 11.4902 7.34529 12.1636 6.85737 12.6621C6.36945 13.1606 5.70685 13.4438 5.01375 13.45H4.99039ZM32.176 10.7884C32.174 9.65915 31.7957 8.56364 31.1024 7.67915C30.4091 6.79465 29.4414 6.17293 28.3557 5.9146V1.18277C28.3557 0.869066 28.2326 0.568224 28.0135 0.346416C27.7944 0.124608 27.4973 0 27.1875 0C26.8777 0 26.5805 0.124608 26.3614 0.346416C26.1424 0.568224 26.0192 0.869066 26.0192 1.18277V5.9146C24.9322 6.17063 23.9628 6.79167 23.2688 7.67662C22.5748 8.56158 22.1971 9.65834 22.1971 10.7884C22.1971 11.9184 22.5748 13.0152 23.2688 13.9001C23.9628 14.7851 24.9322 15.4061 26.0192 15.6621V27.2078C26.0192 27.5215 26.1424 27.8223 26.3614 28.0442C26.5805 28.266 26.8777 28.3906 27.1875 28.3906C27.4973 28.3906 27.7944 28.266 28.0135 28.0442C28.2326 27.8223 28.3557 27.5215 28.3557 27.2078V15.6621C29.4404 15.4019 30.407 14.7796 31.0999 13.8956C31.7929 13.0115 32.1719 11.917 32.176 10.7884ZM27.2108 13.45C26.6909 13.45 26.1827 13.2939 25.7505 13.0015C25.3182 12.709 24.9813 12.2933 24.7823 11.8069C24.5834 11.3206 24.5313 10.7854 24.6327 10.2691C24.7342 9.7528 24.9845 9.27854 25.3521 8.9063C25.7197 8.53406 26.1881 8.28057 26.698 8.17787C27.2079 8.07516 27.7364 8.12787 28.2168 8.32933C28.6971 8.53078 29.1076 8.87193 29.3964 9.30964C29.6853 9.74734 29.8394 10.2619 29.8394 10.7884C29.8394 11.4943 29.5625 12.1713 29.0695 12.6704C28.5766 13.1696 27.908 13.45 27.2108 13.45Z" fill="#4B8EF2"/>
+            </svg>
+        </div>
+        <div class="a-welding-detail-image-wrap">
+            <img src="../imga/4-5.png" alt="Grid Welding Head" class="a-welding-detail-img">
+        </div>
+
+        <div class="a-welding-heads" data-welding-heads>
+            <div class="a-welding-head-card" data-head-index="0" data-color="orange">
+                <h3 class="a-welding-head-title">Grid Welding Head
+                    <svg class="a-welding-head-arrow" width="12" height="8" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </h3>
+                <div class="a-welding-head-panel-wrap">
+                    <div class="a-welding-head-panel-bg"></div>
+                    <div class="a-welding-head-panel-content">
+                        <img src="../imga/5-1.png" alt="Grid Welding Head" class="a-welding-head-img">
+                        <span class="a-welding-head-divider"></span>
+                        <span class="a-welding-head-power">40-200W</span>
+                        <span class="a-welding-head-divider"></span>
+                        <span class="a-welding-head-desc">Thin plastics, fabrics, textiles;<br>general spot welding.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="a-welding-head-card" data-head-index="1" data-color="gray">
+                <h3 class="a-welding-head-title">Piercing Welding Head
+                    <svg class="a-welding-head-arrow" width="12" height="8" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </h3>
+                <div class="a-welding-head-panel-wrap">
+                    <div class="a-welding-head-panel-bg"></div>
+                    <div class="a-welding-head-panel-content">
+                        <img src="../imga/5-2.png" alt="Piercing Welding Head" class="a-welding-head-img">
+                        <span class="a-welding-head-divider"></span>
+                        <span class="a-welding-head-power">40-300W</span>
+                        <span class="a-welding-head-divider"></span>
+                        <span class="a-welding-head-desc">Thicker plastics (ABS, PC, Nylon, PE);<br>structural parts.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="a-welding-head-card" data-head-index="2" data-color="blue">
+                <h3 class="a-welding-head-title">Rivet Welding Head
+                    <svg class="a-welding-head-arrow" width="12" height="8" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </h3>
+                <div class="a-welding-head-panel-wrap">
+                    <div class="a-welding-head-panel-bg"></div>
+                    <div class="a-welding-head-panel-content">
+                        <img src="../imga/5-3.png" alt="Rivet Welding Head" class="a-welding-head-img">
+                        <span class="a-welding-head-divider"></span>
+                        <span class="a-welding-head-power">40-260W</span>
+                        <span class="a-welding-head-divider"></span>
+                        <span class="a-welding-head-desc">Plastic riveting; panel fixing;<br>housing assembly.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第四屏：刀头逐帧动画（Ultrasonic Cutting）- 置于页面最后 -->
+    <section class="a-video-section" data-video-section
+        data-frames-path="../Chawke视频组/切割刀_frames/frame_"
+        data-frames-key="切割刀_frames"
+        data-video-src="../Chawke视频组/切割刀.mp4">
+        <div class="a-video-container">
+            <canvas class="frame-canvas"></canvas>
+            <video class="frame-video" muted playsinline preload="auto" style="display:none"></video>
+            <div class="video-overlay">
+                <h2 class="overlay-headline">Ultrasonic <span class="highlight">Cutting</span></h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <p>© 2025 Chawke</p>
+        <a href="../index.html" class="footer-link">返回首页</a>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="../frame_counts.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/page-a.js"></script>
+    <script src="../js/page-a-poster.js"></script>
+    <script src="../js/page-a-modules.js"></script>
+</body>
+</html>
